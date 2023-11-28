@@ -23,23 +23,42 @@ is not present in the array, the function should return -1.
 # print(binary_search([1, 2, 3 ,4 , 5], 3))
 
 
-def binary_search_rotated(arr, target):
-    low = 0
-    high = len(arr) - 1
-    while low <= high:
-        mid = (low + high) // 2
-        mid_value = arr[mid]
-        if mid_value == target:
-            return mid
-        if arr[low] <= mid_value:
-            if arr[low] <= target < mid_value:
-                high = mid - 1
-            else:
-                low = mid + 1
-        else:
-            if mid_value < target <=arr[high]:
-                low = mid + 1
-            else:
-                high = mid -1
-    return -17
-print(binary_search_rotated([4, 5, 6, 7, 0, 1, 2], 7))
+# def binary_search_rotated(arr, target):
+#     low = 0
+#     high = len(arr) - 1
+#     while low <= high:
+#         mid = (low + high) // 2
+#         mid_value = arr[mid]
+#         if mid_value == target:
+#             return mid
+#         if arr[low] <= mid_value:
+#             if arr[low] <= target < mid_value:
+#                 high = mid - 1
+#             else:
+#                 low = mid + 1
+#         else:
+#             if mid_value < target <=arr[high]:
+#                 low = mid + 1
+#             else:
+#                 high = mid -1
+#     return -17
+# print(binary_search_rotated([4, 5, 6, 7, 0, 1, 2], 7))
+
+
+"""
+day3 Selection Sort algorithm
+"""
+
+arr = [64, 25, 12, 22, 11]
+
+
+def selection_sort(arr):
+    for i in range(len(arr)):
+        smallest_ind = i
+        for j in range(i+1, len(arr)):
+            if arr[j] < arr[smallest_ind]:
+                smallest_ind = j
+        arr[i], arr[smallest_ind] = arr[smallest_ind], arr[i]
+    return arr
+
+print(selection_sort(arr))

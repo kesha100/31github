@@ -49,16 +49,48 @@ is not present in the array, the function should return -1.
 day3 Selection Sort algorithm
 """
 
-arr = [64, 25, 12, 22, 11]
+# arr = [64, 25, 12, 22, 11]
+#
+#
+# def selection_sort(arr):
+#     for i in range(len(arr)):
+#         smallest_ind = i
+#         for j in range(i+1, len(arr)):
+#             if arr[j] < arr[smallest_ind]:
+#                 smallest_ind = j
+#         arr[i], arr[smallest_ind] = arr[smallest_ind], arr[i]
+#     return arr
+#
+# print(selection_sort(arr))
+
+"""
+day 4 
+leetcode problem
+Problem Explaination:
+roman numbers to numbers
+"""
 
 
-def selection_sort(arr):
-    for i in range(len(arr)):
-        smallest_ind = i
-        for j in range(i+1, len(arr)):
-            if arr[j] < arr[smallest_ind]:
-                smallest_ind = j
-        arr[i], arr[smallest_ind] = arr[smallest_ind], arr[i]
-    return arr
+class Solution:
+    def romanToInt(self, s: str) -> int:
+        m = {
+            'I': 1,
+            'V': 5,
+            'X': 10,
+            'L': 50,
+            'C': 100,
+            'D': 500,
+            'M': 1000
+        }
 
-print(selection_sort(arr))
+        ans = 0
+
+        for i in range(len(s)):
+            if i < len(s) - 1 and m[s[i]] < m[s[i + 1]]:
+                ans -= m[s[i]]
+            else:
+                ans += m[s[i]]
+
+        return ans
+solution = Solution()
+print(solution.romanToInt('XI'))

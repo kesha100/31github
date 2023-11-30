@@ -93,4 +93,5 @@ class Solution:
 
         return ans
 solution = Solution()
-print(solution.romanToInt('XI'))
+print(solution.romanToInt('XII'))
+

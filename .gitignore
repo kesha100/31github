@@ -1,0 +1,7 @@
+__pycache__/
+wemay/db.sqlite3
+media/
+
+# Virtual Environment
+venv/
+

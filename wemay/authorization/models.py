@@ -1,8 +1,8 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 
-from wemay.authorization.managers import MyUserManager
-from wemay.authorization.utils import user_image_path
+from .managers import MyUserManager
+from .utils import user_image_path
 
 
 # Create your models here.
@@ -16,7 +16,7 @@ class MyUser(AbstractUser):
     is_active = models.BooleanField(default=False)
     activation_code = models.CharField(max_length=50, blank=True)
 
-    REQUIRED_FIELDS = ['username', 'email']
+    REQUIRED_FIELDS = ['email']
 
     objects = MyUserManager()
 

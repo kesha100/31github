@@ -1,5 +1,5 @@
 from django.contrib.auth.base_user import BaseUserManager
-from wemay.authorization.utils import create_activation_code
+from .utils import create_activation_code
 
 
 class MyUserManager(BaseUserManager):
